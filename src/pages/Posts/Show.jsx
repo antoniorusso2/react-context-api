@@ -4,6 +4,7 @@ import axios from 'axios';
 import { URI } from '../../config';
 import placeholder from '../../assets/placeholder.bmp';
 import PostsContext from '../../contexts';
+import DisabledBtn from '../../components/Buttons/DisabledBtn';
 
 export default function Show() {
   const { id } = useParams();
@@ -40,14 +41,14 @@ export default function Show() {
                 Post precedente
               </button>
             ) : (
-              <button className="btn-disabled">Post precedente</button>
+              <DisabledBtn text={'Post precedente'} />
             )}
             {nextId < posts.length ? (
               <button onClick={() => navigate(`/blog/${nextId}`)} className={`next btn`}>
                 Post successivo
               </button>
             ) : (
-              <button className="btn-disabled">Post successivo</button>
+              <DisabledBtn text={'Post successivo'} />
             )}
           </div>
           {currentPost && (
