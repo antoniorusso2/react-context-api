@@ -44,8 +44,8 @@ img {
 
 /* general components */
 header {
-  background-color: var(--nav-color);
-  color: aliceblue;
+  background-color: var(--bg-color);
+  color: var(--accent-color);
 }
 
 body {
