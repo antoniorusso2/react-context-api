@@ -1,13 +1,14 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { URI } from '../../config';
 import placeholder from '../../assets/placeholder.bmp';
+import PostsContext from '../../contexts';
 
 export default function Show() {
   const { id } = useParams();
 
-  const [post, setPost] = useState(null);
+  const { posts, currentPost, setCurrentPost } = useContext(PostsContext);
 
   const navigate = useNavigate();
 
@@ -15,7 +16,7 @@ export default function Show() {
     axios
       .get(`${URI}/posts/${id}`)
       .then((res) => {
-        setPost(res.data);
+        setCurrentPost(res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -31,14 +32,14 @@ export default function Show() {
               Back
             </button>
           </div>
-          {post && (
+          {currentPost && (
             <>
               <div className="hero">
-                <img src={`${URI}${post.image}` || placeholder} alt="" />
+                <img src={`${URI}${currentPost.image}` || placeholder} alt="" />
               </div>
               <div className="col-12 description">
-                <h2>{post.title}</h2>
-                <p className="post-description">{post.content}</p>
+                <h2>{currentPost.title}</h2>
+                <p className="post-description">{currentPost.content}</p>
               </div>
             </>
           )}
