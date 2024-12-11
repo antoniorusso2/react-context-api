@@ -1,3 +1,3 @@
 # React + Vite
 
-- base project using react + react routers library
+- Blog using react + react routers library
