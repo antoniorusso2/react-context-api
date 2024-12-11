@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import axios from 'axios';
 import { URI } from '../../config';
 import placeholder from '../../assets/placeholder.bmp';
@@ -35,15 +35,19 @@ export default function Show() {
             </button>
           </div>
           <div className="col-12 next-prev">
-            {prevId > 0 && (
+            {prevId > 0 ? (
               <button onClick={() => navigate(`/blog/${prevId}`)} className="btn prev">
                 Post precedente
               </button>
+            ) : (
+              <button className="btn-disabled">Post precedente</button>
             )}
-            {nextId < posts.length && (
+            {nextId < posts.length ? (
               <button onClick={() => navigate(`/blog/${nextId}`)} className={`next btn`}>
                 Post successivo
               </button>
+            ) : (
+              <button className="btn-disabled">Post successivo</button>
             )}
           </div>
           {currentPost && (
