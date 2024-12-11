@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import PostsContext from './contexts';
 
 import DefaultLayout from './layout/DefaultLayout';
@@ -8,7 +8,7 @@ import AboutUs from './pages/About-us/AboutUsMain';
 import NotFound from './pages/NotFound/NotFound';
 import Show from './pages/Posts/Show';
 import Store from './pages/Posts/Create';
-import Index from './pages/Posts/PostsPage';
+import PostsPage from './pages/Posts/PostsPage';
 import axios from 'axios';
 import { URI } from './config';
 
@@ -41,7 +41,7 @@ function App() {
               {/* lista posts */}
               <Route path="/blog">
                 {/* index */}
-                <Route index Component={Index}></Route>
+                <Route index Component={PostsPage}></Route>
                 {/* show */}
                 <Route path=":id" Component={Show}></Route>
                 {/* store */}
