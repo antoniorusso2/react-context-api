@@ -15,6 +15,7 @@ import { URI } from './config';
 function App() {
   const [posts, setPosts] = useState([]);
   const [currentPost, setCurrentPost] = useState(null);
+  const [categories, setCategories] = useState(null);
 
   function fetchData() {
     axios
@@ -26,11 +27,19 @@ function App() {
         setPosts([]);
         console.error(err);
       });
+
+    axios
+      .get(URI + '/categories')
+      .then((res) => {
+        console.log(res.data);
+        setCategories(res.data);
+      })
+      .catch((err) => console.error(err));
   }
 
   return (
     <>
-      <PostsContext.Provider value={{ posts, fetchData, currentPost, setCurrentPost }}>
+      <PostsContext.Provider value={{ posts, fetchData, currentPost, setCurrentPost, categories }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>

@@ -72,7 +72,7 @@ footer {
   opacity: 0.8;
   border: none;
   cursor: pointer;
-  line-height: 2rem;
+  line-height: 2.5rem;
   padding: 0 1rem;
   border-radius: 0.5rem;
   background-color: var(--nav-color);

@@ -10,7 +10,7 @@ export default function PostList() {
   useEffect(fetchData, []);
 
   return (
-    <ul className={style.list}>
+    <ul className={`col-12 ${style.list}`}>
       <h3 className="col-12">Elenco Posts</h3>
       {posts &&
         posts.map((post) => {
