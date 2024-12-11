@@ -5,11 +5,7 @@ import { URI } from '../../config';
 import { Link } from 'react-router-dom';
 
 export default function Card({ post }) {
-  console.log(post);
   const { title, image, id } = post;
-
-  console.log(image);
-  console.log(URI);
 
   return (
     <>
