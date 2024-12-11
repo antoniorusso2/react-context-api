@@ -14,6 +14,7 @@ import { URI } from './config';
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [currentPost, setCurrentPost] = useState(null);
 
   function fetchData() {
     axios
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <>
-      <PostsContext.Provider value={{ posts, fetchData }}>
+      <PostsContext.Provider value={{ posts, fetchData, currentPost, setCurrentPost }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>
