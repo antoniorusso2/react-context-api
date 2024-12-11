@@ -65,6 +65,7 @@ footer {
   color: white;
 }
 
+/* buttons */
 .btn {
   text-align: center;
   opacity: 0.8;
@@ -81,6 +82,15 @@ footer {
   color: aliceblue;
 }
 
+.next-prev {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
 /* general layout rules */
 .container {
   max-width: 1600px;

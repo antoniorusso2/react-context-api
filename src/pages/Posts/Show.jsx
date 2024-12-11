@@ -7,6 +7,8 @@ import PostsContext from '../../contexts';
 
 export default function Show() {
   const { id } = useParams();
+  const nextId = parseInt(id) + 1;
+  const prevId = parseInt(id) - 1;
 
   const { posts, currentPost, setCurrentPost } = useContext(PostsContext);
 
@@ -27,10 +29,22 @@ export default function Show() {
     <main>
       <div className="container">
         <div className="row">
-          <div className="col-12">
+          <div className="go-back col-12">
             <button onClick={() => navigate(-1)} className="btn go-back">
               Back
             </button>
+          </div>
+          <div className="col-12 next-prev">
+            {prevId > 0 && (
+              <button onClick={() => navigate(`/blog/${prevId}`)} className="btn prev">
+                Post precedente
+              </button>
+            )}
+            {nextId < posts.length && (
+              <button onClick={() => navigate(`/blog/${nextId}`)} className={`next btn`}>
+                Post successivo
+              </button>
+            )}
           </div>
           {currentPost && (
             <>
